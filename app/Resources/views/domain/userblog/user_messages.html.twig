@@ -1,0 +1,55 @@
+{% extends "domain/userblog/user_home.html.twig" %}
+
+{% block body %}
+    <header><img src="{{ asset('images/domain/userblog/header.jpg') }}" alt=""></header>
+    <div class="menu_wrapper">
+        <ul class="main_menu">
+            <li class="menu_item">Startseite</li>
+            <li class="menu_item">Login</li>
+            <li class="menu_item">[Eintrag hinzufügen]</li>
+            <li class="menu_item">Logout</li>
+        </ul>
+    </div>
+    <div class="main_wrapper">
+        <ul>
+            {% if (navigation.index.prevExists) %}
+                <li><a href="{{ path(
+                        '_user_show_page',
+                        {'lastPage': navigation.index.prev, 'searchId': navigation.searchId.prev, 'direction': -1, 'shownItemsCount': navigation.shownItemsCount}
+                    ) }}">{{ navigation.index.prev }}</a>
+                </li>
+            {% endif %}
+            {% if (navigation.index.currentExists) %}
+                <li>{{ navigation.index.current }}</li>
+            {% endif %}
+            {% if (navigation.index.nextExists) %}
+                <li><a href="{{ path(
+                        '_user_show_page',
+                        {'lastPage': navigation.index.next, 'searchId': navigation.searchId.next, 'direction': 1, 'shownItemsCount': navigation.shownItemsCount}
+                    ) }}">{{ navigation.index.next }}</a>
+                </li>
+            {% endif %}
+        </ul>
+        <main>
+            <h3>Inhalt</h3>
+            
+            <div class="user_messages">
+            {% for message in messages %}
+                <div class="message_info">
+                    user: {{ message.getAuthor().getName() }}<br>
+                    message: {{ message.getMessage() }}<br>
+                    zeit: {{ message.getDateStamp()|date('Y-m-d H:i:s') }}
+                </div>
+            {% endfor %}
+            </div>
+            {#this is the user blog#}
+            {#{{ message }}    #}
+        </main>
+    </div>        
+    
+    
+    
+    
+    <footer>@2007 -Impressum</footer>
+{% endblock body %}
+    

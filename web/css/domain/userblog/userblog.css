@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+header {
+  width: 100%;
+  text-align: left;
+}
+.menu_wrapper ul.main_menu {
+  border: 1px solid blue;
+  text-align: center;
+  display: inline-block;
+}
+.menu_wrapper ul.main_menu li {
+  float: left;
+  margin-right: 10px;
+  border: 1px dashed black;
+  list-style: none;
+}
+.main_wrapper {
+  text-align: center;
+  width: 100%;
+}
+.main_wrapper main {
+  margin: 10px auto;
+  border: 1px solid gray;
+}
+.main_wrapper main .user_messages {
+  border: 1px solid aliceblue;
+  display: inline-block;
+}
+.main_wrapper main .message_info {
+  margin: 10px auto;
+  text-align: left;
+}
+/*# sourceMappingURL=userblog.css.map */
