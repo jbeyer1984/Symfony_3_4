@@ -25,3 +25,11 @@ _user_show_page:
         searchId: '(-)*\d+'
         direction: '(-)*\d+'
         shownItemsCount: '\d+'
+
+login:
+   path: /login
+   defaults: { _controller: AppBundle:Security:login }
+
+user_registration:
+   path:     /register
+   defaults: { _controller: AppBundle:Registration:register }

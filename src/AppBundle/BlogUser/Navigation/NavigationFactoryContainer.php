@@ -71,6 +71,7 @@ class NavigationFactoryContainer
      */
     public function getChunkFilterFactory()
     {
+        $this->getChunkFilterFactory();
         return $this->chunkFilterFactory;
     }
 

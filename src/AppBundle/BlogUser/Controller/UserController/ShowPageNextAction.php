@@ -3,15 +3,12 @@
 
 namespace AppBundle\BlogUser\Controller\UserController;
 
+use AppBundle\BlogUser\Navigation\NavigationFactoryContainer;
+use AppBundle\BlogUser\Navigation\NavigationNext;
 use AppBundle\BlogUser\Paging\Filter\NavigationIndexSet\NavigationIndexSetFilterFactory;
 use AppBundle\BlogUser\Paging\Filter\SearchIdSet\Filter\ChunkFilterFactory;
 use AppBundle\BlogUser\Paging\Filter\SearchIdSet\SearchIdSetFilterFactory;
-use AppBundle\BlogUser\Navigation\NavigationFactoryContainer;
-use AppBundle\BlogUser\Navigation\NavigationNext;
 use AppBundle\BlogUser\Paging\Pagination\LastPage;
-use AppBundle\BlogUser\Paging\PaginationCondition;
-use AppBundle\BlogUser\Paging\PaginationCondition\Chunk;
-use AppBundle\BlogUser\Paging\PaginationCondition\ItemsPerPageCount;
 use AppBundle\BlogUser\Paging\PaginationCondition\ShownItemsCount;
 use AppBundle\BlogUser\Paging\PaginationException;
 use AppBundle\BlogUser\Paging\Pipe\NavigationViewInfo;
@@ -82,6 +79,7 @@ class ShowPageNextAction
                 new NavigationViewInfoFactory()
             )
         );
+        $navigation->getIndexedUserMessages();
 
         $nextDisplayInfo = $navigation->retrieveNextDisplayInfo();
 
